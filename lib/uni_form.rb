@@ -253,12 +253,13 @@ module UniForm #:nodoc:
       
       divContent << label_for(method, label_options) + field_tag
       divContent << @template.content_tag('p', hint, :class => 'formHint') if not hint.blank?
-            
-            
+      
+      divContent = divContent.html_safe if divContent.respond_to?(:html_safe)
+
       if not @ctrl_group
-        @template.content_tag('div', divContent, :class => wrapperClass)
+        @template.content_tag('div', divContent.html_safe, :class => wrapperClass)
       else
-        divContent
+        divContent.html_safe
       end
     end
     
