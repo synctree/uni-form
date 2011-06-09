@@ -160,8 +160,7 @@ module UniForm #:nodoc:
       options.delete(:legend)
       options.delete(:type)
       
-      @template.concat(@template.content_tag(:fieldset, content, options.merge({ :class => classname.strip })))
-      
+      @template.content_tag(:fieldset, content, options.merge({ :class => classname.strip }))
     end
 
     def ctrl_group(&proc)
